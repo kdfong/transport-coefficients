@@ -1,6 +1,6 @@
 # Computing Transport Coefficients from Molecular Dynamics
 
-This code uses output files from LAMMPS molecular dynamics simulations to compute transport coefficients $L^{ij}$ in electrolyte solutions, where $L^{ij} = \frac{V}{3 k_B T} \int_0^\infty \big<c_i (\mathbf{v}_{i}(t)-\mathbf{v}(t)) \cdot c_i (\mathbf{v}_{j}(t)-\mathbf{v}(0))\big>$.
+This code uses output files from LAMMPS molecular dynamics simulations to compute transport coefficients $L^{ij}$ in electrolyte solutions, where ![equation](http://www.sciweavers.org/upload/Tex2Img_1578524990/render.png).
 
 Here, $i$ and $j$ are ionic species in solution, $c_i = \frac{N_i}{V}$ is the concentration of species $i$, $\mathbf{v}_i$ is the velocity of species $i$, and $\mathbf{v}$ is the mass-averaged velocity of all species in the system.
 
