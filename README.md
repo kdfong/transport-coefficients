@@ -1,14 +1,14 @@
 # Computing Transport Coefficients from Molecular Dynamics
 
-This code uses output files from LAMMPS molecular dynamics simulations to compute transport coefficients $L^{ij}$ in electrolyte solutions, where ![equation](http://www.sciweavers.org/upload/Tex2Img_1578524990/render.png).
+This code uses output files from LAMMPS molecular dynamics simulations to compute transport coefficients ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525075/render.png) in electrolyte solutions, where ![equation](http://www.sciweavers.org/upload/Tex2Img_1578524990/render.png).
 
-Here, $i$ and $j$ are ionic species in solution, $c_i = \frac{N_i}{V}$ is the concentration of species $i$, $\mathbf{v}_i$ is the velocity of species $i$, and $\mathbf{v}$ is the mass-averaged velocity of all species in the system.
+Here, ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525099/render.png) and ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525118/render.png) are ionic species in solution, ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525141/render.png) is the concentration of species ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525099/render.png), ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525179/render.png) is the velocity of species ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525099/render.png), and ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525212/render.png) is the mass-averaged velocity of all species in the system.
 
-For the purpose of this computation, we assume $\mathbf{v} = 0$, i.e. there is negligible center of mass velocity of the simulation box. Note that while $\mathbf{v}$ will impact $L^{ij}$, it will not influence bulk, experimentally measurable transport quantities which can be computed from $L^{ij}$, such as the ionic conductivity. We also note that $\mathbf{v}_i$ is technically an average over all instances of species $i$ in the system (e.g. over every cation of a given type in the electrolyte): $\mathbf{v}_i = \frac{\sum_\alpha^{N_i} v_{i,\alpha}(t)}{N_i}$. Thus, we rewrite our original expression for $L^{ij}$ as follows:
+For the purpose of this computation, we assume ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525242/render.png), i.e. there is negligible center of mass velocity of the simulation box. Note that while ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525212/render.png) will impact ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525075/render.png), it will not influence the final ionic conductivity. We also note that ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525179/render.png) is technically an average over all instances of species ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525099/render.png) in the system (e.g. over every cation of a given type in the electrolyte): ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525344/render.png). Thus, we rewrite our original expression for ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525075/render.png) as follows:
 
-$L^{ij} = \frac{V}{3 k_B T} \int_0^\infty \big<\frac{N_i N_j}{V^2}\frac{\sum_\alpha^{N_i} v_{i,\alpha}(t)}{N_i} \cdot \frac{\sum_\beta^{N_j} v_{j,\beta}(0)}{N_j}\big>$
+![equation](http://www.sciweavers.org/upload/Tex2Img_1578525394/render.png)
 
-$L^{ij} = \frac{1}{3 k_B T V} \int_0^\infty \big<\sum_\alpha v_{i,\alpha}(t) \cdot \sum_\beta v_{j,\beta}(0)\big>$
+![equation](http://www.sciweavers.org/upload/Tex2Img_1578525413/render.png)
 
 For computational ease, this final form of the equation is the one evaluated in this code.
 
@@ -26,4 +26,4 @@ To run this code, you will need dump files from a LAMMPS simulation outputting t
 
 ### Examples
 
-See the Example notebook for a walkthrough of the computation of $L^{ij}$ for a simulation of LiCl in DMSO. This example also shows how to use the computed $L^{ij}$ to compute ionic conductivity. The output files which should be generated from the example are in the folder example_output.
+See the Example notebook for a walkthrough of the computation of ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525075/render.png) for a simulation of LiCl in DMSO. This example also shows how to use the computed ![equation](http://www.sciweavers.org/upload/Tex2Img_1578525075/render.png) to compute ionic conductivity. The output files which should be generated from the example are in the folder example_output.
